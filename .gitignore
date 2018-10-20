@@ -1,0 +1,12 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Encurta.iCarros.Api/.vs/Encurta.iCarros.Api/v15
+/Encurta.iCarros.Api/Encurta.iCarros.Api/obj
+/Encurta.iCarros.Api/Encurta.iCarros.Domain/obj
+/Encurta.iCarros.Api/Encurta.iCarros.Infra/obj
+/Encurta.iCarros.Api/Encurta.iCarros.Service/obj
+/Encurta.iCarros.Api/Encurta.iCarros.Api/Properties
+/Encurta.iCarros.Api/Encurta.iCarros.Api/appsettings.Development.json
