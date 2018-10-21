@@ -10,3 +10,7 @@
 /Encurta.iCarros.Api/Encurta.iCarros.Service/obj
 /Encurta.iCarros.Api/Encurta.iCarros.Api/Properties
 /Encurta.iCarros.Api/Encurta.iCarros.Api/appsettings.Development.json
+/Encurta.iCarros.Api/Encurta.iCarros.Api/bin
+/Encurta.iCarros.Api/Encurta.iCarros.Domain/bin
+/Encurta.iCarros.Api/Encurta.iCarros.Infra/bin/Debug/netcoreapp2.1
+/Encurta.iCarros.Api/Encurta.iCarros.Service/bin/Debug/netcoreapp2.1

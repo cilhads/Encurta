@@ -1,45 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Dapper;
+using Encurta.iCarros.Domain.Entities;
+using Encurta.iCarros.Domain.Intefaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Encurta.iCarros.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+
+    public class ValuesController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        private IConfiguration config;
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ValuesController(IConfiguration configuration)
         {
-            return "value";
+            config = configuration;
         }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
+            
+        //// Get api/values
+        [HttpGet("{Command}")]        
+        public List<Usuario> Get(string usuario, string senha)
         {
+            using (SqlConnection conexao = new SqlConnection(
+                config.GetConnectionString("DefaultConnection")))
+            {
+                List<Usuario> usuarios = conexao.Query<Usuario>(string.Format("SELECT * FROM TB_USUARIO WHERE DS_ALIAS = '{0}' AND DS_SENHA = '{1}'", usuario, senha)).AsList();
+                                 
+                return usuarios;
+            }
+         
         }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+             
     }
 }
